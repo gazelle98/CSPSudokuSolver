@@ -66,7 +66,10 @@ class Sudoku:
         Keyword arguments:
         row -- an integer from 0 to 8 representing the desired row.
         """
-        return self.sudoku_state[row]
+        if row < 0 or row > 8:
+            raise ValueError("Row value must be between 0 and 8")
+        else:
+            return self.sudoku_state[row]
 
     def get_col(self, col):
         """
