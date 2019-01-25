@@ -159,6 +159,9 @@ class Sudoku:
         return True
 
     def print_sudoku(self):
+        """
+        Prints the state of this sudoku to the output.
+        """
         sudoku_string = ""
         for r in range(0, 9):
             for c in range(0, 9):
