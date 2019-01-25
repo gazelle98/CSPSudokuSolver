@@ -176,3 +176,13 @@ class Sudoku:
                 sudoku_string += str(self.get_entry(r, c)) + " "
             sudoku_string += "\n"
         print(sudoku_string)
+
+    def get_possible_values(self, row, col):
+        """
+        Gets the possible values of the given position in the puzzle.
+
+        Keyword arguments:
+        row -- an integer from 0 to 8 representing the row of the desired entry.
+        col -- an integer from 0 to 8 representing the column of the desired entry.
+        """
+        return self.possible_values[row][col]
