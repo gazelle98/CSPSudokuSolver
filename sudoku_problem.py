@@ -50,6 +50,11 @@ class Sudoku:
             raise ValueError("Column value must be between 0 and 8")
         else:
             self.sudoku_state[row][col] = entry
+            self.possible_values[row][col] = []
+            for i in range(9):
+                self.possible_values[row][i].remove(entry)
+                self.possible_values[i][col].remove(entry)
+
 
     def get_entry(self, row, col):
         """
