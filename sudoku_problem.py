@@ -10,6 +10,16 @@ class Sudoku:
         """
         self.sudoku = sudoku
 
+    def get_state(self):
+        """
+        Gets the current state of the sudoku as a copy of the list of lists.
+        """
+        state = []
+        for row in self.sudoku:
+            state.append(list(row))
+
+        return state
+
     def set_element(self, row, col, entry):
         """
         Sets the value at the given row and column values to the given entry value.
