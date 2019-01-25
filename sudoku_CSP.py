@@ -15,3 +15,13 @@ class SudokuCSP:
         Returns the initial state by calling the get_state() method on the initial_sudoku of this csp.
         """
         self.initial_sudoku.get_state()
+
+    def is_complete_assignment(self, assignment):
+        """
+        Determines if the given assignment of values to a sudoku is a valid solution to this SudokuCSP.
+
+        Keyword arguments:
+        assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
+        """
+        return False
+
