@@ -7,6 +7,7 @@ class SudokuCSP:
         initial_sudoku -- an instance of a Sudoku object representing the initial state of the sudoku to be solved.
         """
         self.initial_sudoku = initial_sudoku
+        self.expanded_nodes = 0
 
     def get_initial_state(self):
         """
@@ -67,4 +68,5 @@ class SudokuCSP:
                 if new_state.is_valid():
                     successors.append(new_state)
 
+            self.expanded_nodes += 1
             return successors
