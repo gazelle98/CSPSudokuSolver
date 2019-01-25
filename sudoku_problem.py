@@ -159,7 +159,9 @@ class Sudoku:
         return True
 
     def print_sudoku(self):
+        sudoku_string = ""
         for r in range(0, 9):
             for c in range(0, 9):
-                print(self.get_entry(r, c) + " ", end="")
-            print("\n", end="")
+                sudoku_string += self.get_entry(r, c) + " "
+            sudoku_string += "\n"
+        print(sudoku_string)
