@@ -23,5 +23,12 @@ class SudokuCSP:
         Keyword arguments:
         assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
         """
+
+        for r, row in enumerate(self.initial_sudoku.get_state()):
+            for c, entry in enumerate(row):
+                if entry != 0:
+                    if entry != assignment.get_entry(r, c):
+                        raise ValueError("Assignment does not match initial state values.")
+
         return assignment.is_complete() and assignment.is_valid()
 
