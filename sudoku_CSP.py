@@ -23,5 +23,5 @@ class SudokuCSP:
         Keyword arguments:
         assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
         """
-        return False
+        return assignment.is_complete() and assignment.is_valid()
 
