@@ -84,3 +84,14 @@ class Sudoku:
             square.append(self.sudoku[i][initial_col_num:initial_col_num + 3])
 
         return square
+
+    def is_complete(self):
+        """
+        Determines if the state of this Sudoku has no empty entries.
+        """
+        for row in self.sudoku:
+            for entry in row:
+                if entry == 0:
+                    return False
+
+        return True
