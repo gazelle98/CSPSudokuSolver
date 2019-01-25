@@ -24,11 +24,11 @@ class SudokuCSP:
         assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
         """
 
-        for r, row in enumerate(self.initial_sudoku.get_state()):
-            for c, entry in enumerate(row):
-                if entry != 0:
-                    if entry != assignment.get_entry(r, c):
-                        raise ValueError("Assignment does not match initial state values.")
+        for r in range(0, 9):
+            for c in range(0, 9):
+                entry = self.initial_sudoku.get_entry(r, c)
+                if entry != 0 and entry != assignment.get_entry(r, c):
+                    raise ValueError("Assignment does not match initial state values.")
 
         return assignment.is_complete() and assignment.is_valid()
 
