@@ -47,3 +47,17 @@ class SudokuCSP:
                     pos = (r, c)
                     return pos
         raise ValueError("Assignment is already complete.")
+
+    def get_successors(self, assignment, variable_pos):
+        r, c = variable_pos
+        if assignment.get_entry(r, c) != 0:
+            raise ValueError("Variable position is already filled.")
+        else:
+            successors = []
+            for n in range(1, 10):
+                new_state = assignment.deep_copy()
+                new_state.set_value(r, c, n)
+                if new_state.is_valid():
+                    successors.append(new_state)
+
+            return successors
