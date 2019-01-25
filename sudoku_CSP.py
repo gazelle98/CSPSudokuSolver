@@ -64,7 +64,7 @@ class SudokuCSP:
             successors = []
             for n in range(1, 10):
                 new_state = assignment.deep_copy()
-                new_state.set_value(r, c, n)
+                new_state.set_element(r, c, n)
                 if new_state.is_valid():
                     successors.append(new_state)
 
