@@ -1,21 +1,21 @@
 class Sudoku:
-    def __init__(self, sudoku):
+    def __init__(self, sudoku_state):
         """
         Initializes an instance of a Sudoku.
 
         Keyword arguments:
-        sudoku -- a 9 by 9 list of lists representing all of the values in a sudoku problem. The entries in the list
+        sudoku_state -- a 9 by 9 list of lists representing all of the values in a sudoku problem. The entries in the list
         of lists may either be the numbers 1 to 9 representing the puzzle values at those positions,
         or 0 representing an empty entry.
         """
-        self.sudoku = sudoku
+        self.sudoku_state = sudoku_state
 
     def get_state(self):
         """
         Gets the current state of the sudoku as a copy of the list of lists.
         """
         state = []
-        for row in self.sudoku:
+        for row in self.sudoku_state:
             state.append(list(row))
 
         return state
@@ -42,7 +42,7 @@ class Sudoku:
         elif col < 0 or col > 8:
             raise ValueError("Column value must be between 0 and 8")
         else:
-            self.sudoku[row][col] = entry
+            self.sudoku_state[row][col] = entry
 
     def get_entry(self, row, col):
         """
@@ -52,7 +52,7 @@ class Sudoku:
         row -- an integer from 0 to 8 representing the row of the desired entry.
         col -- an integer from 0 to 8 representing the column of the desired entry.
         """
-        return self.sudoku[row][col]
+        return self.sudoku_state[row][col]
 
     def get_row(self, row):
         """
@@ -61,7 +61,7 @@ class Sudoku:
         Keyword arguments:
         row -- an integer from 0 to 8 representing the desired row.
         """
-        return self.sudoku[row]
+        return self.sudoku_state[row]
 
     def get_col(self, col):
         """
@@ -71,7 +71,7 @@ class Sudoku:
         col -- an integer from 0 to 8 representing the desired column.
         """
         column = []
-        for i, r in enumerate(self.sudoku):
+        for i, r in enumerate(self.sudoku_state):
             column.append(r[col])
         return column
 
@@ -88,7 +88,7 @@ class Sudoku:
         initial_col_num = square_col * 3
 
         for i in range(initial_row_num, initial_row_num + 3):
-            square.append(self.sudoku[i][initial_col_num:initial_col_num + 3])
+            square.append(self.sudoku_state[i][initial_col_num:initial_col_num + 3])
 
         return square
 
@@ -96,7 +96,7 @@ class Sudoku:
         """
         Determines if the state of this Sudoku has no empty entries.
         """
-        for row in self.sudoku:
+        for row in self.sudoku_state:
             for entry in row:
                 if entry == 0:
                     return False
