@@ -12,7 +12,7 @@ class Sudoku:
             for entry in row:
                 if entry < 0 or entry > 9:
                     raise ValueError("All entries must be 0 to 9.")
-        
+
         self.sudoku_state = sudoku_state
 
     def get_state(self):
@@ -113,6 +113,22 @@ class Sudoku:
 
             return square
 
+    def get_square_as_list(self, square_row, square_col):
+        """
+        Gets the 3x3 sub-square of this sudoku problem in the form of a single list.
+
+        Keyword arguments:
+        square_row -- an integer from 0 to 2 representing the row of the desired sub-square.
+        square_col -- an integer from 0 to 2 representing the column of the desired sub-square.
+        """
+        square = self.get_square(square_row, square_col)
+        square_list = []
+        for row in square:
+            for entry in row:
+                square_list.append(entry)
+
+        return square_list
+
     def is_complete(self):
         """
         Determines if the state of this Sudoku has no empty entries.
@@ -121,5 +137,23 @@ class Sudoku:
             for entry in row:
                 if entry == 0:
                     return False
+
+        return True
+
+    def is_valid(self):
+        """
+        Determines if the current state is not in violation of any of the constraints of a sudoku puzzle.
+        """
+
+        for i in range(0, 9):
+            for n in range(1, 10):
+                if self.get_row(i).count(n) > 1 or self.get_col(i).count(n) > 1:
+                    return False
+
+        for sr in range(0, 3):
+            for sc in range(0, 3):
+                for n in range(1, 10):
+                    if self.get_square_as_list(sr, sc).count(n) > 1:
+                        return False
 
         return True
