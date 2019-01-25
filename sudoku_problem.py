@@ -52,9 +52,10 @@ class Sudoku:
             self.sudoku_state[row][col] = entry
             self.possible_values[row][col] = []
             for i in range(9):
-                self.possible_values[row][i].remove(entry)
-                self.possible_values[i][col].remove(entry)
-
+                if entry in self.possible_values[row][i]:
+                    self.possible_values[row][i].remove(entry)
+                if entry in self.possible_values[i][col]:
+                    self.possible_values[i][col].remove(entry)
 
     def get_entry(self, row, col):
         """
