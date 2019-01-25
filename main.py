@@ -16,4 +16,4 @@ if __name__ == "__main__":
     initial_sudoku = sudoku_problem.Sudoku(easy_sudoku_state)
     csp = sudoku_CSP.SudokuCSP(initial_sudoku)
     solution = search.backtracking_search(csp)
-    solution.print_soduku()
+    solution.print_sudoku()
