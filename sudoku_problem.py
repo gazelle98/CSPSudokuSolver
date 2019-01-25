@@ -52,7 +52,12 @@ class Sudoku:
         row -- an integer from 0 to 8 representing the row of the desired entry.
         col -- an integer from 0 to 8 representing the column of the desired entry.
         """
-        return self.sudoku_state[row][col]
+        if row < 0 or row > 8:
+            raise ValueError("Row value must be between 0 and 8")
+        elif col < 0 or col > 8:
+            raise ValueError("Column value must be between 0 and 8")
+        else:
+            return self.sudoku_state[row][col]
 
     def get_row(self, row):
         """
