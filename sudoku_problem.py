@@ -20,6 +20,12 @@ class Sudoku:
 
         return state
 
+    def deep_copy(self):
+        """
+        Returns a deep copy of this instance of a Sudoku.
+        """
+        return Sudoku(self.get_state())
+
     def set_element(self, row, col, entry):
         """
         Sets the value at the given row and column values to the given entry value.
