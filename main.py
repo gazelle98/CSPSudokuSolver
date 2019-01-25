@@ -2,6 +2,7 @@ import sudoku_CSP
 import sudoku_problem
 import search
 
+# Solution found in 1834 node expansions.
 easy_sudoku_state = [[0, 5, 3, 0, 0, 0, 7, 9, 0],
                      [0, 0, 9, 7, 8, 2, 6, 0, 0],
                      [0, 0, 0, 5, 0, 3, 0, 0, 0],
@@ -12,6 +13,7 @@ easy_sudoku_state = [[0, 5, 3, 0, 0, 0, 7, 9, 0],
                      [9, 0, 0, 0, 0, 0, 0, 0, 6],
                      [0, 0, 4, 0, 0, 0, 8, 0, 0]]
 
+# Solution found in 287,637 node expansions
 medium_sudoku_state = [[0, 0, 0, 0, 0, 0, 0, 9, 0],
                        [0, 5, 0, 0, 0, 0, 2, 0, 1],
                        [0, 0, 0, 0, 0, 7, 6, 0, 0],
@@ -23,7 +25,7 @@ medium_sudoku_state = [[0, 0, 0, 0, 0, 0, 0, 9, 0],
                        [0, 4, 0, 0, 7, 9, 3, 8, 0]]
 
 if __name__ == "__main__":
-    initial_sudoku = sudoku_problem.Sudoku(medium_sudoku_state)
+    initial_sudoku = sudoku_problem.Sudoku(easy_sudoku_state)
     csp = sudoku_CSP.SudokuCSP(initial_sudoku)
     solution = search.backtracking_search(csp)
     solution.print_sudoku()
