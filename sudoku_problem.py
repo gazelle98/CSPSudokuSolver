@@ -14,7 +14,8 @@ class Sudoku:
 
         for r, row in enumerate(sudoku_state):
             for c, entry in enumerate(row):
-                self.set_element(r, c, entry)
+                if entry != 0:
+                    self.set_element(r, c, entry)
 
     def get_state(self):
         """
