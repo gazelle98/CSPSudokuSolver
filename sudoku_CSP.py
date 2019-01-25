@@ -32,3 +32,18 @@ class SudokuCSP:
 
         return assignment.is_complete() and assignment.is_valid()
 
+    def get_next_variable(self, assignment):
+        """
+        Determines the next variable in the assignment to be expanded.
+
+        Returns a tuple containing the row and column of the next variable to be expanded.
+
+        Keyword arguments:
+        assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
+        """
+        for r in range(0, 9):
+            for c in range(0, 9):
+                if assignment.get_entry(r, c) == 0:
+                    pos = (r, c)
+                    return pos
+        raise ValueError("Assignment is already complete.")
