@@ -15,7 +15,7 @@ class SudokuCSP:
 
         Returns the initial state by calling the get_state() method on the initial_sudoku of this csp.
         """
-        self.initial_sudoku.get_state()
+        return self.initial_sudoku.get_state()
 
     def is_complete_assignment(self, assignment):
         """
