@@ -94,14 +94,19 @@ class Sudoku:
         square_row -- an integer from 0 to 2 representing the row of the desired sub-square.
         square_col -- an integer from 0 to 2 representing the column of the desired sub-square.
         """
-        square = []
-        initial_row_num = square_row * 3
-        initial_col_num = square_col * 3
+        if square_row < 0 or square_row > 2:
+            raise ValueError("Square row value must be between 0 and 2")
+        elif square_col < 0 or square_col > 2:
+            raise ValueError("Square column value must be between 0 and 2")
+        else:
+            square = []
+            initial_row_num = square_row * 3
+            initial_col_num = square_col * 3
 
-        for i in range(initial_row_num, initial_row_num + 3):
-            square.append(self.sudoku_state[i][initial_col_num:initial_col_num + 3])
+            for i in range(initial_row_num, initial_row_num + 3):
+                square.append(self.sudoku_state[i][initial_col_num:initial_col_num + 3])
 
-        return square
+            return square
 
     def is_complete(self):
         """
