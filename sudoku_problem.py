@@ -4,10 +4,15 @@ class Sudoku:
         Initializes an instance of a Sudoku.
 
         Keyword arguments:
-        sudoku_state -- a 9 by 9 list of lists representing all of the values in a sudoku problem. The entries in the list
-        of lists may either be the numbers 1 to 9 representing the puzzle values at those positions,
-        or 0 representing an empty entry.
+        sudoku_state -- a 9 by 9 list of lists representing all of the values in a sudoku problem.
+        The entries in the list of lists may either be the numbers 1 to 9 representing the puzzle values at
+        those positions, or 0 representing an empty entry.
         """
+        for row in sudoku_state:
+            for entry in row:
+                if entry < 0 or entry > 9:
+                    raise ValueError("All entries must be 0 to 9.")
+        
         self.sudoku_state = sudoku_state
 
     def get_state(self):
