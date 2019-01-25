@@ -164,7 +164,9 @@ class Sudoku:
         """
         sudoku_string = ""
         for r in range(0, 9):
+            sudoku_string += "+-+-+-+-+-+--+-+-+"
             for c in range(0, 9):
-                sudoku_string += str(self.get_entry(r, c)) + " "
-            sudoku_string += "\n"
+                sudoku_string += "|" + str(self.get_entry(r, c))
+            sudoku_string += "|\n"
+        sudoku_string += "+-+-+-+-+-+--+-+-+"
         print(sudoku_string)
