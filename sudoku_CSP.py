@@ -69,4 +69,5 @@ class SudokuCSP:
                     successors.append(new_state)
 
             self.expanded_nodes += 1
+            print(self.expanded_nodes)
             return successors
