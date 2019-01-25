@@ -162,6 +162,6 @@ class Sudoku:
         sudoku_string = ""
         for r in range(0, 9):
             for c in range(0, 9):
-                sudoku_string += self.get_entry(r, c) + " "
+                sudoku_string += str(self.get_entry(r, c)) + " "
             sudoku_string += "\n"
         print(sudoku_string)
