@@ -78,10 +78,13 @@ class Sudoku:
         Keyword arguments:
         col -- an integer from 0 to 8 representing the desired column.
         """
-        column = []
-        for i, r in enumerate(self.sudoku_state):
-            column.append(r[col])
-        return column
+        if col < 0 or col > 8:
+            raise ValueError("Column value must be between 0 and 8")
+        else:
+            column = []
+            for i, r in enumerate(self.sudoku_state):
+                column.append(r[col])
+            return column
 
     def get_square(self, square_row, square_col):
         """
