@@ -49,6 +49,13 @@ class SudokuCSP:
         raise ValueError("Assignment is already complete.")
 
     def get_successors(self, assignment, variable_pos):
+        """
+        Gets all of the valid successors of the given assignment in regards to the variable position.
+
+        Keyword arguments:
+        assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
+        variable_pos -- a tuple containing the row and column of the variable to be expanded.
+        """
         r, c = variable_pos
         if assignment.get_entry(r, c) != 0:
             raise ValueError("Variable position is already filled.")
