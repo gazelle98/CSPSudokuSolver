@@ -8,12 +8,13 @@ class Sudoku:
         The entries in the list of lists may either be the numbers 1 to 9 representing the puzzle values at
         those positions, or 0 representing an empty entry.
         """
-        for row in sudoku_state:
-            for entry in row:
-                if entry < 0 or entry > 9:
-                    raise ValueError("All entries must be 0 to 9.")
 
-        self.sudoku_state = sudoku_state
+        self.possible_values = [[[i for i in range(1, 10)] for n in range(9)] for z in range(9)]
+        self.sudoku_state = [[0 for x in range(9)] for y in range(9)]
+
+        for r, row in enumerate(sudoku_state):
+            for c, entry in enumerate(row):
+                self.set_element(r, c, entry)
 
     def get_state(self):
         """
