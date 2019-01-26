@@ -37,11 +37,6 @@ class SudokuCSP:
                 if entry != 0 and entry != assignment.get_entry(r, c):
                     raise ValueError("Assignment does not match initial state values.")
 
-        result = assignment.is_complete() and assignment.is_valid()
-
-        if result:
-            print("Number of nodes expanded: " + str(self.expanded_nodes))
-
         return assignment.is_complete() and assignment.is_valid()
 
     def get_next_variable(self, assignment):
