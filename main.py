@@ -61,7 +61,7 @@ if __name__ == "__main__":
                    "hard": hard_sudoku_state,
                    "hardest": worlds_hardest_sudoku_state}
     for i, arg in enumerate(sys.argv):
-        if arg == "-sudoku" or "-s":
+        if arg == "-sudoku" or arg == "-s":
             sudoku_state = sudoku_dict[sys.argv[i + 1]]
 
     start = time.clock()
