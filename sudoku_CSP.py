@@ -42,12 +42,20 @@ class SudokuCSP:
         Keyword arguments:
         assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
         """
+
+        pos_list = []
+        num_possible_list = []
         for r in range(0, 9):
             for c in range(0, 9):
                 if assignment.get_entry(r, c) == 0:
                     pos = (r, c)
-                    return pos
-        raise ValueError("Assignment is already complete.")
+                    pos_list.append(pos)
+                    num_possible_list.append(assignment.get_possible_values(r, c))
+
+        if len(pos_list) > 0:
+            return pos_list[min(num_possible_list)]
+        else:
+            raise ValueError("Assignment is already complete.")
 
     def get_successors(self, assignment, variable_pos):
         """
