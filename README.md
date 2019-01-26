@@ -1,4 +1,4 @@
-# CSPSudokuSolver
+# CSP Sudoku Solver
 
 ### Overview
 This is a program that solves sudoku puzzles using artificial intelligence concepts. 
