@@ -136,6 +136,7 @@ def main():
         solution.print_sudoku()
         end = time.clock()
         print("Time elapsed: " + str(end - start) + " seconds.")
+        print("Number of nodes expanded: " + str(csp.get_num_expanded()))
 
 
 if __name__ == "__main__":
