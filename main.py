@@ -129,14 +129,21 @@ def main():
                     raise ValueError("Given argument for sudoku input \"-s\" is invalid.")
 
     if not is_help:
-        start = time.clock()
         initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
+        print("\nInitial sudoku:"),
+        initial_sudoku.print_sudoku()
+
         csp = sudoku_CSP.SudokuCSP(initial_sudoku)
+
+        start = time.clock()
         solution = search.backtracking_search(csp)
-        solution.print_sudoku()
         end = time.clock()
+
+        print("Solution:"),
+        solution.print_sudoku()
+
         print("Time elapsed: " + str(end - start) + " seconds.")
-        print("Number of nodes expanded: " + str(csp.get_num_expanded()))
+        print("Number of nodes expanded: " + str(csp.get_num_expanded()) + "\n")
 
 
 if __name__ == "__main__":
