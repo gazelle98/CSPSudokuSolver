@@ -62,7 +62,7 @@ def parse_sudoku(sudoku_str):
     Keyword arguments:
     str -- a string consisting of 81 integers between 1 and 9 representing the values of the entries of a sudoku.
     """
-    sudoku = [[0] * 9] * 9
+    sudoku = [[0 for x in range(9)] for y in range(9)]
     counter = 0
     for char in sudoku_str:
         if counter > 80:
