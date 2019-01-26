@@ -1,5 +1,6 @@
 # CSPSudokuSolver
 
+### Overview
 This is a program that solves sudoku puzzles using artificial intelligence concepts. 
 This program treats the puzzle as a Constraint Satisfaction Problem (CSP). Each of the squares in the 
 puzzle is treated as a separate variable, with domain 1-9. The constraints to the problem
@@ -22,3 +23,24 @@ A state is discarded if it is found to be in violation of any of the constraints
 sudoku puzzle. If there is more than one of the same number in any given row, column, or 3x3 
 sub-square then that state is discarded so that it does not have to keep being expanded until
 it is complete to find out that it is incorrect.
+
+### Usage
+The command line syntax is as follows:
+        $ python main.py
+    This command runs the program solving a default easy sudoku problem.
+
+    Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program:
+        $python main.py --h
+
+    You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
+    in the same directory to specify a sudoku to solve.
+
+    Examples:
+        $ python main.py -sudoku medium
+        $ python main.py -s sudoku.txt
+
+    The easy, medium, hard, and hardest keywords correspond to 4 different built in sudokus of varying difficulty
+    that can be used to solve.
+
+    If you use he file input option then the program will use the first 81 integers it finds in the .txt file
+    as the values for the sudoku.
