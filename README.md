@@ -8,8 +8,9 @@ no repeats.
 
 The way this problem is solved is using the Backtracking Search algorithm. This is a variation
 on Depth First Search (DFS) that eliminates states that are invalid before they are expanded to 
-completion in order to save time. Also the different variables are expanded in an order
-such that it will limit the number of nodes that have to be expanded.
+completion in order to reduce the number of expanded nodes and therefore increase performance. 
+Also the different variables are expanded in an order such that it will limit the number 
+of nodes that have to be expanded.
 
 THe possible values of each variable are kept track of in the Sudoku class instances and
 when it comes time to decide which variable to expand next in the search, it will choose 
