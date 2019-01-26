@@ -33,8 +33,8 @@ This command runs the program solving a default easy sudoku problem.
 
 Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program:
 
-        $python main.py --h
-        $python main.py --help
+    $python main.py --h
+    $python main.py --help
 
 You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
 in the same directory to specify a sudoku to solve.
