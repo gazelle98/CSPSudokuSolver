@@ -2,6 +2,7 @@ import sudoku_CSP
 import sudoku_problem
 import search
 import time
+import sys
 
 # Solution found in 1834 node expansions with trivial next_variable method and no inferences
 # Solution found in 200 node expansions with just partially optimized next variable
@@ -54,8 +55,17 @@ worlds_hardest_sudoku_state = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
                                [0, 9, 0, 0, 0, 0, 4, 0, 0]]
 
 if __name__ == "__main__":
+    sudoku_state = easy_sudoku_state
+    sudoku_dict = {"easy": easy_sudoku_state,
+                   "medium": medium_sudoku_state,
+                   "hard": hard_sudoku_state,
+                   "hardest": worlds_hardest_sudoku_state}
+    for i, arg in enumerate(sys.argv):
+        if arg == "-sudoku" or "-s":
+            sudoku_state = sudoku_dict[sys.argv[i + 1]]
+
     start = time.clock()
-    initial_sudoku = sudoku_problem.Sudoku(hard_sudoku_state)
+    initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
     csp = sudoku_CSP.SudokuCSP(initial_sudoku)
     solution = search.backtracking_search(csp)
     solution.print_sudoku()
