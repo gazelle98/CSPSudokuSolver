@@ -26,21 +26,26 @@ it is complete to find out that it is incorrect.
 
 ### Usage
 The command line syntax is as follows:
-        $ python main.py
-    This command runs the program solving a default easy sudoku problem.
 
-    Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program:
+    $ python main.py
+    
+This command runs the program solving a default easy sudoku problem.
+
+Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program:
+
         $python main.py --h
+        $python main.py --help
 
-    You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
-    in the same directory to specify a sudoku to solve.
+You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
+in the same directory to specify a sudoku to solve.
 
-    Examples:
-        $ python main.py -sudoku medium
-        $ python main.py -s sudoku.txt
+Examples:
 
-    The easy, medium, hard, and hardest keywords correspond to 4 different built in sudokus of varying difficulty
-    that can be used to solve.
+    $ python main.py -sudoku medium
+    $ python main.py -s sudoku.txt
 
-    If you use he file input option then the program will use the first 81 integers it finds in the .txt file
-    as the values for the sudoku.
+The easy, medium, hard, and hardest keywords correspond to 4 different built in sudokus of varying difficulty
+that can be used to solve.
+
+If you use he file input option then the program will use the first 81 integers it finds in the .txt file
+as the values for the sudoku.
