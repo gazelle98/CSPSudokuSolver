@@ -91,7 +91,8 @@ def main():
         $ python main.py
     This command runs the program solving a default easy sudoku problem.
 
-    Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program.
+    Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program:
+        $python main.py --h
 
     You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
     in the same directory to specify a sudoku to solve.
@@ -126,7 +127,7 @@ def main():
                     sudoku_state = parse_sudoku(sudoku_file.read())
                 except FileNotFoundError:
                     raise ValueError("Given argument for sudoku input \"-s\" is invalid.")
-    
+
     if not is_help:
         start = time.clock()
         initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
