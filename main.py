@@ -89,9 +89,17 @@ if __name__ == "__main__":
                    "medium": medium_sudoku_state,
                    "hard": hard_sudoku_state,
                    "hardest": worlds_hardest_sudoku_state}
+
     for i, arg in enumerate(sys.argv):
         if arg == "-sudoku" or arg == "-s":
-            sudoku_state = sudoku_dict[sys.argv[i + 1]]
+            if sys.argv[i + 1] in sudoku_dict:
+                sudoku_state = sudoku_dict[sys.argv[i + 1]]
+            else:
+                try:
+                    sudoku_file = open(sys.argv[i + 1], "r")
+                    sudoku_state = parse_sudoku(sudoku_file.read())
+                except FileNotFoundError:
+                    raise ValueError("Given argument for sudoku input \"-s\" is invalid.")
 
     start = time.clock()
     initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
