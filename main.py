@@ -40,8 +40,20 @@ hard_sudoku_state = [[2, 0, 5, 1, 0, 0, 0, 0, 0],
                      [0, 0, 0, 0, 0, 0, 5, 0, 0],
                      [9, 0, 7, 4, 0, 0, 0, 0, 0]]
 
+
+# Solution found in 10,101 node expansions with optimized next variable
+worlds_hardest_sudoku_state = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
+                               [0, 0, 3, 6, 0, 0, 0, 0, 0],
+                               [0, 7, 0, 0, 9, 0, 2, 0, 0],
+                               [0, 5, 0, 0, 0, 7, 0, 0, 0],
+                               [0, 0, 0, 0, 4, 5, 7, 0, 0],
+                               [0, 0, 0, 1, 0, 0, 0, 3, 0],
+                               [0, 0, 1, 0, 0, 0, 0, 6, 8],
+                               [0, 0, 8, 5, 0, 0, 0, 1, 0],
+                               [0, 9, 0, 0, 0, 0, 4, 0, 0]]
+
 if __name__ == "__main__":
-    initial_sudoku = sudoku_problem.Sudoku(hard_sudoku_state)
+    initial_sudoku = sudoku_problem.Sudoku(worlds_hardest_sudoku_state)
     csp = sudoku_CSP.SudokuCSP(initial_sudoku)
     solution = search.backtracking_search(csp)
     solution.print_sudoku()
