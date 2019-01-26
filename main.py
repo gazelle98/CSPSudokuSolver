@@ -1,6 +1,7 @@
 import sudoku_CSP
 import sudoku_problem
 import search
+import time
 
 # Solution found in 1834 node expansions with trivial next_variable method and no inferences
 # Solution found in 200 node expansions with just partially optimized next variable
@@ -53,7 +54,10 @@ worlds_hardest_sudoku_state = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
                                [0, 9, 0, 0, 0, 0, 4, 0, 0]]
 
 if __name__ == "__main__":
-    initial_sudoku = sudoku_problem.Sudoku(worlds_hardest_sudoku_state)
+    start = time.clock()
+    initial_sudoku = sudoku_problem.Sudoku(hard_sudoku_state)
     csp = sudoku_CSP.SudokuCSP(initial_sudoku)
     solution = search.backtracking_search(csp)
     solution.print_sudoku()
+    end = time.clock()
+    print("Time elapsed: " + str(end - start) + " seconds.")
