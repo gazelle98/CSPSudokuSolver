@@ -103,6 +103,8 @@ def print_initial_and_solution(init_state, sol_state):
 
         output_string += "\n"
 
+    print(output_string)
+
 
 def main():
     """
