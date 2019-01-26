@@ -9,6 +9,12 @@ class SudokuCSP:
         self.initial_sudoku = initial_sudoku
         self.expanded_nodes = 0
 
+    def get_num_expanded(self):
+        """
+        Returns the number of nodes this CSP has expanded.
+        """
+        return self.expanded_nodes
+
     def get_initial_state(self):
         """
         Gets the initial state of this sudoku csp problem.
