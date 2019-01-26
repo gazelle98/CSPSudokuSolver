@@ -1,4 +1,3 @@
-import sudoku_CSP
 import sudoku_problem
 
 
