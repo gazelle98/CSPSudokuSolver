@@ -83,6 +83,27 @@ def parse_sudoku(sudoku_str):
         return sudoku
 
 
+def print_initial_and_solution(init_state, sol_state):
+    """
+    Prints the given initial and solution state of a sudoku side by side.
+
+    Keyword arguments:
+    init_state -- a 9x9 list of lists of integers representing the starting state of the solution
+    sol_state -- a 9x9 list of lists of integers representing the solution state of the solution
+    """
+    output_string = "\nInitial state:             Solution state:\n"
+    for row in range(9):
+        for init_col in range(9):
+            output_string += str(init_state[row][init_col]) + " "
+
+        output_string += " " * 9
+
+        for sol_col in range(9):
+            output_string += str(sol_state[row][sol_col]) + " "
+
+        output_string += "\n"
+
+
 def main():
     """
     Runs the program using the given command line arguments as input.
