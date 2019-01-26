@@ -151,17 +151,13 @@ def main():
 
     if not is_help:
         initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
-        print("\nInitial sudoku:"),
-        initial_sudoku.print_sudoku()
-
         csp = sudoku_CSP.SudokuCSP(initial_sudoku)
 
         start = time.clock()
         solution = search.backtracking_search(csp)
         end = time.clock()
 
-        print("Solution:"),
-        solution.print_sudoku()
+        print_initial_and_solution(sudoku_state, solution.get_state())
 
         print("Time elapsed: " + str(end - start) + " seconds.")
         print("Number of nodes expanded: " + str(csp.get_num_expanded()) + "\n")
