@@ -54,6 +54,35 @@ worlds_hardest_sudoku_state = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
                                [0, 0, 8, 5, 0, 0, 0, 1, 0],
                                [0, 9, 0, 0, 0, 0, 4, 0, 0]]
 
+
+def parse_sudoku(sudoku_str):
+    """
+    Parses a string into a representation of a sudoku state as a 9x9 list of integers.
+
+    Keyword arguments:
+    str -- a string consisting of 81 integers between 1 and 9 representing the values of the entries of a sudoku.
+    """
+    sudoku = [[0] * 9] * 9
+    counter = 0
+    for char in sudoku_str:
+        if counter > 80:
+            break
+
+        try:
+            val = int(char)
+            row = counter // 9
+            col = counter % 9
+            sudoku[row][col] = val
+            counter += 1
+        except ValueError:
+            continue
+
+    if counter < 80:
+        raise ValueError("Not enough values in sudoku string input.")
+    else:
+        return sudoku
+
+
 if __name__ == "__main__":
     sudoku_state = easy_sudoku_state
     sudoku_dict = {"easy": easy_sudoku_state,
