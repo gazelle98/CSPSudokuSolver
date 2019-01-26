@@ -26,8 +26,18 @@ medium_sudoku_state = [[0, 0, 0, 0, 0, 0, 0, 9, 0],
                        [9, 0, 0, 0, 0, 0, 0, 0, 2],
                        [0, 4, 0, 0, 7, 9, 3, 8, 0]]
 
+hard_sudoku_state = [[2, 0, 5, 1, 0, 0, 0, 0, 0],
+                     [0, 0, 0, 0, 0, 0, 1, 0, 0],
+                     [8, 0, 0, 0, 9, 0, 7, 2, 0],
+                     [7, 0, 1, 5, 2, 0, 0, 0, 8],
+                     [0, 0, 0, 0, 0, 0, 9, 0, 0],
+                     [4, 0, 6, 9, 1, 0, 0, 0, 3],
+                     [1, 0, 0, 0, 8, 0, 4, 6, 0],
+                     [0, 0, 0, 0, 0, 0, 5, 0, 0],
+                     [9, 0, 7, 4, 0, 0, 0, 0, 0]]
+
 if __name__ == "__main__":
-    initial_sudoku = sudoku_problem.Sudoku(medium_sudoku_state)
+    initial_sudoku = sudoku_problem.Sudoku(hard_sudoku_state)
     csp = sudoku_CSP.SudokuCSP(initial_sudoku)
     solution = search.backtracking_search(csp)
     solution.print_sudoku()
