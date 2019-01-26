@@ -78,7 +78,7 @@ def parse_sudoku(sudoku_str):
             continue
 
     if counter < 80:
-        raise ValueError("Not enough values in sudoku string input.")
+        raise ValueError("Not enough integer values in sudoku string input.")
     else:
         return sudoku
 
