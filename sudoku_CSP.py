@@ -50,10 +50,10 @@ class SudokuCSP:
                 if assignment.get_entry(r, c) == 0:
                     pos = (r, c)
                     pos_list.append(pos)
-                    num_possible_list.append(assignment.get_possible_values(r, c))
+                    num_possible_list.append(len(assignment.get_possible_values(r, c)))
 
         if len(pos_list) > 0:
-            return pos_list[min(num_possible_list)]
+            return pos_list[num_possible_list.index(min(num_possible_list))]
         else:
             raise ValueError("Assignment is already complete.")
 
