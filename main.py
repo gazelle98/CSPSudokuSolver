@@ -26,6 +26,7 @@ medium_sudoku_state = [[0, 0, 0, 0, 0, 0, 0, 9, 0],
                        [9, 0, 0, 0, 0, 0, 0, 0, 2],
                        [0, 4, 0, 0, 7, 9, 3, 8, 0]]
 
+# Solution found in 752 node expansions with just partially optimized next variable
 hard_sudoku_state = [[2, 0, 5, 1, 0, 0, 0, 0, 0],
                      [0, 0, 0, 0, 0, 0, 1, 0, 0],
                      [8, 0, 0, 0, 9, 0, 7, 2, 0],
