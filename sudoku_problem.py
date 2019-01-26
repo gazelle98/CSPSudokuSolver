@@ -178,12 +178,12 @@ class Sudoku:
         """
         Prints the state of this sudoku to the output.
         """
-        sudoku_string = ""
+        sudoku_string = "\n"
         for r in range(0, 9):
             for c in range(0, 9):
                 sudoku_string += str(self.get_entry(r, c)) + " "
             sudoku_string += "\n"
-        print(sudoku_string),
+        print(sudoku_string)
 
     def get_possible_values(self, row, col):
         """
