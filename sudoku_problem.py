@@ -51,7 +51,7 @@ class Sudoku:
         else:
             self.sudoku_state[row][col] = entry
             self.possible_values[row][col] = []
-            
+
             for i in range(9):
                 if entry in self.possible_values[row][i]:
                     self.possible_values[row][i].remove(entry)
