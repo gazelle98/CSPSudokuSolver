@@ -91,6 +91,8 @@ def main():
         $ python main.py
     This command runs the program solving a default easy sudoku problem.
 
+    Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program.
+
     You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
     in the same directory to specify a sudoku to solve.
 
@@ -109,8 +111,12 @@ def main():
                    "medium": medium_sudoku_state,
                    "hard": hard_sudoku_state,
                    "hardest": worlds_hardest_sudoku_state}
+    is_help = False
 
     for i, arg in enumerate(sys.argv):
+        if arg == "--help" or arg == "--h":
+            is_help = True
+            print(main.__doc__)
         if arg == "-sudoku" or arg == "-s":
             if sys.argv[i + 1] in sudoku_dict:
                 sudoku_state = sudoku_dict[sys.argv[i + 1]]
@@ -120,14 +126,15 @@ def main():
                     sudoku_state = parse_sudoku(sudoku_file.read())
                 except FileNotFoundError:
                     raise ValueError("Given argument for sudoku input \"-s\" is invalid.")
-
-    start = time.clock()
-    initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
-    csp = sudoku_CSP.SudokuCSP(initial_sudoku)
-    solution = search.backtracking_search(csp)
-    solution.print_sudoku()
-    end = time.clock()
-    print("Time elapsed: " + str(end - start) + " seconds.")
+    
+    if not is_help:
+        start = time.clock()
+        initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
+        csp = sudoku_CSP.SudokuCSP(initial_sudoku)
+        solution = search.backtracking_search(csp)
+        solution.print_sudoku()
+        end = time.clock()
+        print("Time elapsed: " + str(end - start) + " seconds.")
 
 
 if __name__ == "__main__":
