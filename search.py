@@ -38,7 +38,7 @@ def recursive_backtracking(assignment, csp):
     raise ValueError("Search Failure.")
 
 
-def arc_consistency_3(assignment):
+def arc_consistency_3(assignment, initial_arcs):
     """
     This is an implementation of the ac-3 arc consistency: constraint propagation algorithm.
 
@@ -48,7 +48,7 @@ def arc_consistency_3(assignment):
     Keyword arguments:
     assignment -- an instance of a Sudoku representing the assignments to each entry in a CSP.
     """
-    arc_queue = []
+    arc_queue = initial_arcs
 
     while len(arc_queue) > 0:
         head, tail = arc_queue[0]
