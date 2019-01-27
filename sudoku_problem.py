@@ -218,9 +218,9 @@ class Sudoku:
         neighbors = []
 
         for i in range(9):
-            if i != row and self.get_entry(i, col) == 0:
+            if i != row:
                 neighbors.append((i, col))
-            if i != col and self.get_entry(row, i) == 0:
+            if i != col:
                 neighbors.append((row, i))
 
         sr = row // 3
