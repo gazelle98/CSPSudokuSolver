@@ -10,6 +10,9 @@ class Sudoku:
         sudoku_state -- a 9 by 9 list of lists representing all of the values in a sudoku problem.
         The entries in the list of lists may either be the numbers 1 to 9 representing the puzzle values at
         those positions, or 0 representing an empty entry.
+
+        pos_vals -- optional argument representing the possible values matrix. If none is provided then one will
+        be created for the given sudoku state.
         """
 
         if pos_vals is None:
