@@ -34,6 +34,18 @@ class Sudoku:
 
         return state
 
+    def get_possible_values_copy(self):
+        """
+        Gets a copy of the possible values matrix.
+        """
+        vals = []
+        for row in self.possible_values:
+            val_row = []
+            for val_list in row:
+                val_row.append(list(val_list))
+            vals.append(val_row)
+        return vals
+
     def deep_copy(self):
         """
         Returns a deep copy of this instance of a Sudoku.
