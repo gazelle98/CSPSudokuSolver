@@ -54,19 +54,6 @@ class Sudoku:
         else:
             num_pos = len(self.get_possible_values(row, col))
             self.sudoku_state[row][col] = entry
-
-            # for i in range(9):
-            #     if entry in self.possible_values[row][i]:
-            #         self.possible_values[row][i].remove(entry)
-            #     if entry in self.possible_values[i][col]:
-            #         self.possible_values[i][col].remove(entry)
-            #
-            # initial_square_row = (row // 3) * 3
-            # initial_square_col = (col // 3) * 3
-            # for sr in range(initial_square_row, initial_square_row + 3):
-            #     for sc in range(initial_square_col, initial_square_col + 3):
-            #         if entry in self.possible_values[sr][sc]:
-            #             self.possible_values[sr][sc].remove(entry)
             self.possible_values[row][col] = [entry]
 
             if num_pos > 1:
