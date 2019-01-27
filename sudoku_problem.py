@@ -238,8 +238,8 @@ class Sudoku:
         sr = row // 3
         sc = col // 3
 
-        for r in range(sr, sr + 3):
-            for c in range(sc, sc + 3):
+        for r in range(sr * 3, (sr * 3) + 3):
+            for c in range(sc * 3, (sc * 3) + 3):
                 if r != row or c != col and self.get_entry(r, c) == 0:
                     pos = (r, c)
                     if pos not in neighbors:
