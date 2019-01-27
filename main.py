@@ -112,7 +112,7 @@ def print_initial_and_solution(init_state, sol_state):
 
 def main():
     """
-    Runs the program using the given command line arguments as input.
+    Runs the sudoku solver using the given command line arguments as input.
 
     The command line syntax is as follows:
         $ python main.py
