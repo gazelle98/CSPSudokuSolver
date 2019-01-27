@@ -22,14 +22,16 @@ until the queue is empty.
 
 The possible values of each variable are kept track of in the Sudoku class instances and
 when it comes time to decide which variable to expand next in the search, it will choose 
-the variable with the least number of possible values left. This helps reduce the total 
+the variable with the fewest number of possible values left. This helps reduce the total 
 number of nodes expanded because there are fewer branches to the search tree this way, and 
 it is more likely to pick the correct value for the given variable.
 
 A state is discarded if it is found to be in violation of any of the constraints of the
 sudoku puzzle. If there is more than one of the same number in any given row, column, or 3x3 
 sub-square then that state is discarded so that it does not have to keep being expanded until
-it is complete to find out that it is incorrect.
+it is complete to find out that it is incorrect. In addition if a variable's domain is empty, then
+that state is discarded because there is no possible value that can be entered there such that the 
+state maintains validity.
 
 ### Usage
 The command line syntax is as follows:
