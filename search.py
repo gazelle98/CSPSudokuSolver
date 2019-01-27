@@ -38,6 +38,25 @@ def recursive_backtracking(assignment, csp):
     raise ValueError("Search Failure.")
 
 
+def arc_consistency_3(assignment):
+    """
+    This is an implementation of the ac-3 arc consistency: constraint propagation algorithm.
+
+    This algorithm removes all of the inconsistent possible values in the assignment in order to reduce the number
+    of possibilities, and in turn increase efficiency by reducing the number of nodes to expand.
+
+    Keyword arguments:
+    assignment -- an instance of a Sudoku representing the assignments to each entry in a CSP.
+    """
+    arc_queue = []
+
+    while len(arc_queue) > 0:
+        head, tail = arc_queue[0]
+        if remove_inconsistent_values(assignment, head, tail):
+            for pos in assignment.get_neighbors(tail[0], tail[1]):
+                arc_queue.append((tail, pos))
+
+
 def remove_inconsistent_values(assignment, head, tail):
     """
     Removes inconsistent values from the tail that do not agree with values in the head.
