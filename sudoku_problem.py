@@ -52,6 +52,7 @@ class Sudoku:
         elif col < 0 or col > 8:
             raise ValueError("Column value must be between 0 and 8")
         else:
+            num_pos = len(self.get_possible_values(row, col))
             self.sudoku_state[row][col] = entry
 
             # for i in range(9):
@@ -67,11 +68,13 @@ class Sudoku:
             #         if entry in self.possible_values[sr][sc]:
             #             self.possible_values[sr][sc].remove(entry)
             self.possible_values[row][col] = [entry]
-            neighbors = self.get_neighbors(row, col)
-            arcs = []
-            for n in neighbors:
-                arcs.append(((row, col), n))
-            search.arc_consistency_3(self, arcs)
+
+            if num_pos > 1:
+                neighbors = self.get_neighbors(row, col)
+                arcs = []
+                for n in neighbors:
+                    arcs.append(((row, col), n))
+                search.arc_consistency_3(self, arcs)
 
     def get_entry(self, row, col):
         """
