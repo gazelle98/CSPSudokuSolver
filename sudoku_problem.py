@@ -206,7 +206,7 @@ class Sudoku:
         vals -- a list of ints from 1 to 9 with no repeated values representing the possible values of this position.
         """
         self.possible_values[row][col] = vals
-        
+
     def get_neighbors(self, row, col):
         """
         Gets a list of tuples representing all of the positions that interact with the given position.
