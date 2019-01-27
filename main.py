@@ -134,8 +134,7 @@ def main():
     built in sudokus of varying difficulty that can be used to solve.
 
     If you use he file input option then the program will use the first 81
-    digits it finds in the .txt file as the values for the sudoku.
-    """
+    digits it finds in the .txt file as the values for the sudoku."""
     sudoku_state = easy_sudoku_state
     sudoku_dict = {"easy": easy_sudoku_state,
                    "medium": medium_sudoku_state,
@@ -144,7 +143,9 @@ def main():
 
     for i, arg in enumerate(sys.argv):
         if arg == "--help" or arg == "--h":
+            print("\n" + "-" * 75),
             print(main.__doc__)
+            print("-" * 75 + "\n")
             sys.exit(0)
         if arg == "-sudoku" or arg == "-s":
             if sys.argv[i + 1] in sudoku_dict:
