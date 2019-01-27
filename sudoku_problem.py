@@ -181,6 +181,11 @@ class Sudoku:
                     if self.get_square_as_list(sr, sc).count(n) > 1:
                         return False
 
+        for r in range(9):
+            for c in range(9):
+                if len(self.get_possible_values(r, c)) == 0:
+                    return False
+
         return True
 
     def print_sudoku(self):
