@@ -228,7 +228,7 @@ class Sudoku:
 
         for r in range(sr * 3, (sr * 3) + 3):
             for c in range(sc * 3, (sc * 3) + 3):
-                if r != row or c != col and self.get_entry(r, c) == 0:
+                if r != row or c != col:
                     pos = (r, c)
                     if pos not in neighbors:
                         neighbors.append(pos)
