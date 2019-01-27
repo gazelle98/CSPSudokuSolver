@@ -13,7 +13,14 @@ completion in order to reduce the number of expanded nodes and therefore increas
 Also the different variables are expanded in an order such that it will limit the number 
 of nodes that have to be expanded.
 
-THe possible values of each variable are kept track of in the Sudoku class instances and
+In order to eliminate as many contradictory possible values as possible, as quickly as possible, 
+this CSP implements the Arc-Consistency: Consistency Propagation algorithm, or AC-3. Whenever a value is 
+updated it will form a queue of arcs, which are pairs of positions that are affected by the updated value.
+Then it will go through each arc and remove values from the domain of the tail of each arc if they contradict.
+If a domain is altered it will add all of the arcs affected by this domain change to the queue and will repeat 
+until the queue is empty. 
+
+The possible values of each variable are kept track of in the Sudoku class instances and
 when it comes time to decide which variable to expand next in the search, it will choose 
 the variable with the least number of possible values left. This helps reduce the total 
 number of nodes expanded because there are fewer branches to the search tree this way, and 
