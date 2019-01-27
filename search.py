@@ -52,7 +52,8 @@ def arc_consistency_3(assignment, initial_arcs):
 
     while len(arc_queue) > 0:
         head, tail = arc_queue.pop(0)
-        if remove_inconsistent_values(assignment, head, tail) and len(assignment.get_possible_values(tail[0], tail[1])) == 1:
+        tr, tc = tail
+        if remove_inconsistent_values(assignment, head, tail) and len(assignment.get_possible_values(tr, tc)) == 1:
             for pos in assignment.get_neighbors(tail[0], tail[1]):
                 arc_queue.append((tail, pos))
 
