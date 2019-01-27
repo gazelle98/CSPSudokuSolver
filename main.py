@@ -4,8 +4,8 @@ import search
 import time
 import sys
 
-# Solution found in 1834 node expansions with trivial next_variable method and no inferences
-# Solution found in 200 node expansions with just partially optimized next variable
+# Solution found in 1834 node expansions with trivial next_variable heuristic and no inferences
+# Solution found in 200 node expansions with just partially optimized next variable heuristic
 # Solution found in 84 node expansions with optimized next variable
 # Solution found in 57 node expansions with optimized next variable and ac-3
 easy_sudoku_state = [[0, 5, 3, 0, 0, 0, 7, 9, 0],
@@ -18,10 +18,10 @@ easy_sudoku_state = [[0, 5, 3, 0, 0, 0, 7, 9, 0],
                      [9, 0, 0, 0, 0, 0, 0, 0, 6],
                      [0, 0, 4, 0, 0, 0, 8, 0, 0]]
 
-# Solution found in 287,637 node expansions with trivial next_variable method and no inferences
-# Solution found in 606 node expansions with just partially optimized next variable
-# Solution found in 54 node expansions with optimized next variable
-# Solution found in 54 node expansions with optimized next variable and ac-3
+# Solution found in 287,637 node expansions with trivial next_variable heuristic and no inferences
+# Solution found in 606 node expansions with just partially optimized next variable heuristic
+# Solution found in 54 node expansions with optimized next variable heuristic
+# Solution found in 54 node expansions with optimized next variable heuristic and ac-3
 medium_sudoku_state = [[0, 0, 0, 0, 0, 0, 0, 9, 0],
                        [0, 5, 0, 0, 0, 0, 2, 0, 1],
                        [0, 0, 0, 0, 0, 7, 6, 0, 0],
@@ -32,9 +32,9 @@ medium_sudoku_state = [[0, 0, 0, 0, 0, 0, 0, 9, 0],
                        [9, 0, 0, 0, 0, 0, 0, 0, 2],
                        [0, 4, 0, 0, 7, 9, 3, 8, 0]]
 
-# Solution found in 752 node expansions with just partially optimized next variable
-# Solution found in 80 node expansions with optimized next variable
-# Solution found in 55 node expansions with optimized next variable and ac-3
+# Solution found in 752 node expansions with just partially optimized next variable heuristic
+# Solution found in 80 node expansions with optimized next variable heuristic
+# Solution found in 55 node expansions with optimized next variable heuristic and ac-3
 hard_sudoku_state = [[2, 0, 5, 1, 0, 0, 0, 0, 0],
                      [0, 0, 0, 0, 0, 0, 1, 0, 0],
                      [8, 0, 0, 0, 9, 0, 7, 2, 0],
@@ -46,8 +46,8 @@ hard_sudoku_state = [[2, 0, 5, 1, 0, 0, 0, 0, 0],
                      [9, 0, 7, 4, 0, 0, 0, 0, 0]]
 
 
-# Solution found in 10,101 node expansions with optimized next variable
-# Solution found in 2444 node expansions with optimized next variable and ac-3
+# Solution found in 10,101 node expansions with optimized next variable heuristic
+# Solution found in 2444 node expansions with optimized next variable heuristic and ac-3
 worlds_hardest_sudoku_state = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
                                [0, 0, 3, 6, 0, 0, 0, 0, 0],
                                [0, 7, 0, 0, 9, 0, 2, 0, 0],
