@@ -76,7 +76,7 @@ def remove_inconsistent_values(assignment, head, tail):
     possible_tail_values = list(assignment.get_possible_values(tr, tc))
     possible_head_values = assignment.get_possible_values(hr, hc)
 
-    if len(possible_head_values) == 1 and (possible_head_values[0] in possible_tail_values) and assignment.get_entry(tr, tc) == 0:
+    if len(possible_head_values) == 1 and (possible_head_values[0] in possible_tail_values):
         possible_tail_values.remove(possible_head_values[0])
         removed = True
 
