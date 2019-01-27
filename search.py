@@ -72,18 +72,6 @@ def remove_inconsistent_values(assignment, head, tail):
 
     hr, hc = head
     tr, tc = tail
-    #
-    # same_row = hr == tr
-    # same_col = hc == tc
-    #
-    # hsr = hr // 3
-    # hsc = hc // 3
-    # tsr = tr // 3
-    # tsc = tc // 3
-    #
-    # same_square = hsr == tsr and hsc == tsc
-    #
-    # in_conflict = same_row or same_col or same_square
 
     possible_tail_values = list(assignment.get_possible_values(tr, tc))
     possible_head_values = assignment.get_possible_values(hr, hc)
@@ -91,18 +79,6 @@ def remove_inconsistent_values(assignment, head, tail):
     if len(possible_head_values) == 1 and (possible_head_values[0] in possible_tail_values) and assignment.get_entry(tr, tc) == 0:
         possible_tail_values.remove(possible_head_values[0])
         removed = True
-        print(str(hr), str(hc), str(tr), str(tc), str(possible_head_values), str(possible_tail_values), str(assignment.get_entry(tr, tc)))
-
-    # for ptv in list(possible_tail_values):
-    #     allowed = False
-    #     for phv in possible_head_values:
-    #         if ptv != phv or not in_conflict:
-    #             allowed = True
-    #             break
-    #
-    #     if not allowed:
-    #         possible_tail_values.remove(ptv)
-    #         removed = True
 
     assignment.set_possible_values(tr, tc, possible_tail_values)
     return removed
