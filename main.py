@@ -118,33 +118,34 @@ def main():
         $ python main.py
     This command runs the program solving a default easy sudoku problem.
 
-    Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program:
+    Adding the --help or --h tag to the command line arguments shows a
+    help page for how to initialize this program:
         $python main.py --h
 
-    You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
-    in the same directory to specify a sudoku to solve.
+    You can add the -sudoku or -s argument followed by easy, medium,
+    hard, hardest, or a the name of a .txt file in the same directory
+    to specify a sudoku to solve.
 
     Examples:
         $ python main.py -sudoku medium
         $ python main.py -s sudoku.txt
 
-    The easy, medium, hard, and hardest keywords correspond to 4 different built in sudokus of varying difficulty
-    that can be used to solve.
+    The easy, medium, hard, and hardest keywords correspond to 4 different
+    built in sudokus of varying difficulty that can be used to solve.
 
-    If you use he file input option then the program will use the first 81 integers it finds in the .txt file
-    as the values for the sudoku.
+    If you use he file input option then the program will use the first 81
+    digits it finds in the .txt file as the values for the sudoku.
     """
     sudoku_state = easy_sudoku_state
     sudoku_dict = {"easy": easy_sudoku_state,
                    "medium": medium_sudoku_state,
                    "hard": hard_sudoku_state,
                    "hardest": worlds_hardest_sudoku_state}
-    is_help = False
 
     for i, arg in enumerate(sys.argv):
         if arg == "--help" or arg == "--h":
-            is_help = True
             print(main.__doc__)
+            sys.exit(0)
         if arg == "-sudoku" or arg == "-s":
             if sys.argv[i + 1] in sudoku_dict:
                 sudoku_state = sudoku_dict[sys.argv[i + 1]]
@@ -155,18 +156,17 @@ def main():
                 except FileNotFoundError:
                     raise ValueError("Given argument for sudoku input \"-s\" is invalid.")
 
-    if not is_help:
-        initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
-        csp = sudoku_CSP.SudokuCSP(initial_sudoku)
+    initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
+    csp = sudoku_CSP.SudokuCSP(initial_sudoku)
 
-        start = time.clock()
-        solution = search.backtracking_search(csp)
-        end = time.clock()
+    start = time.clock()
+    solution = search.backtracking_search(csp)
+    end = time.clock()
 
-        print_initial_and_solution(sudoku_state, solution.get_state())
+    print_initial_and_solution(sudoku_state, solution.get_state())
 
-        print("Time elapsed: " + str(end - start) + " seconds.")
-        print("Number of nodes expanded: " + str(csp.get_num_expanded()) + "\n")
+    print("Time elapsed: " + str(end - start) + " seconds.")
+    print("Number of nodes expanded: " + str(csp.get_num_expanded()) + "\n")
 
 
 if __name__ == "__main__":
