@@ -50,7 +50,7 @@ class Sudoku:
         """
         Returns a deep copy of this instance of a Sudoku.
         """
-        return Sudoku(self.get_state())
+        return Sudoku(self.get_state(), pos_vals=self.get_possible_values_copy())
 
     def set_element(self, row, col, entry):
         """
