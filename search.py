@@ -73,12 +73,11 @@ def remove_inconsistent_values(assignment, head, tail):
     hr, hc = head
     tr, tc = tail
 
-    possible_tail_values = list(assignment.get_possible_values(tr, tc))
+    possible_tail_values = assignment.get_possible_values(tr, tc)
     possible_head_values = assignment.get_possible_values(hr, hc)
 
     if len(possible_head_values) == 1 and (possible_head_values[0] in possible_tail_values):
         possible_tail_values.remove(possible_head_values[0])
         removed = True
 
-    assignment.set_possible_values(tr, tc, possible_tail_values)
     return removed
