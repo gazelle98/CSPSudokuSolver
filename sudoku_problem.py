@@ -199,7 +199,7 @@ class Sudoku:
     def set_possible_values(self, row, col, vals):
         """
         Sets the list of possible values for the given position to the given list of values.
-        
+
         Keyword arguments:
         row -- an integer from 0 to 8 representing the row of the desired entry.
         col -- an integer from 0 to 8 representing the column of the desired entry.
