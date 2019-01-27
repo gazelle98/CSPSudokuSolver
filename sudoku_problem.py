@@ -206,3 +206,31 @@ class Sudoku:
         vals -- a list of ints from 1 to 9 with no repeated values representing the possible values of this position.
         """
         self.possible_values[row][col] = vals
+        
+    def get_neighbors(self, row, col):
+        """
+        Gets a list of tuples representing all of the positions that interact with the given position.
+
+        Keyword arguments:
+        row -- an integer from 0 to 8 representing the row of the desired entry.
+        col -- an integer from 0 to 8 representing the column of the desired entry.
+        """
+        neighbors = []
+
+        for i in range(9):
+            if i != row:
+                neighbors.append((i, col))
+            if i != col:
+                neighbors.append((row, i))
+
+        sr = row // 3
+        sc = col // 3
+
+        for r in range(sr, sr + 3):
+            for c in range(sc, sc + 3):
+                if r != row or c != col:
+                    pos = (r, c)
+                    if pos not in neighbors:
+                        neighbors.append(pos)
+
+        return neighbors
