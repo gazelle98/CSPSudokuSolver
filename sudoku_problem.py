@@ -65,7 +65,7 @@ class Sudoku:
                         self.possible_values[sr][sc].remove(entry)
 
             self.possible_values[row][col] = [entry]
-            
+
     def get_entry(self, row, col):
         """
         Gets the entry at the given row and column values from this sudoku problem.
@@ -195,3 +195,14 @@ class Sudoku:
         col -- an integer from 0 to 8 representing the column of the desired entry.
         """
         return self.possible_values[row][col]
+
+    def set_possible_values(self, row, col, vals):
+        """
+        Sets the list of possible values for the given position to the given list of values.
+        
+        Keyword arguments:
+        row -- an integer from 0 to 8 representing the row of the desired entry.
+        col -- an integer from 0 to 8 representing the column of the desired entry.
+        vals -- a list of ints from 1 to 9 with no repeated values representing the possible values of this position.
+        """
+        self.possible_values[row][col] = vals
