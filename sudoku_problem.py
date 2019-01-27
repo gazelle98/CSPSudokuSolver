@@ -67,12 +67,13 @@ class Sudoku:
             #         if entry in self.possible_values[sr][sc]:
             #             self.possible_values[sr][sc].remove(entry)
 
-            self.possible_values[row][col] = [entry]
             neighbors = self.get_neighbors(row, col)
             arcs = []
             for n in neighbors:
                 arcs.append(((row, col), n))
             search.arc_consistency_3(self, arcs)
+
+            self.set_possible_values(row, col, [entry])
 
     def get_entry(self, row, col):
         """
