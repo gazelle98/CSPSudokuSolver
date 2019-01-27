@@ -231,9 +231,9 @@ class Sudoku:
         neighbors = []
 
         for i in range(9):
-            if i != row:
+            if i != row and self.get_entry(i, col) == 0:
                 neighbors.append((i, col))
-            if i != col:
+            if i != col and self.get_entry(row, i) == 0:
                 neighbors.append((row, i))
 
         sr = row // 3
@@ -241,7 +241,7 @@ class Sudoku:
 
         for r in range(sr, sr + 3):
             for c in range(sc, sc + 3):
-                if r != row or c != col:
+                if r != row or c != col and self.get_entry(r, c) == 0:
                     pos = (r, c)
                     if pos not in neighbors:
                         neighbors.append(pos)
