@@ -50,7 +50,6 @@ class Sudoku:
             raise ValueError("Column value must be between 0 and 8")
         else:
             self.sudoku_state[row][col] = entry
-            self.possible_values[row][col] = []
 
             for i in range(9):
                 if entry in self.possible_values[row][i]:
@@ -65,6 +64,8 @@ class Sudoku:
                     if entry in self.possible_values[sr][sc]:
                         self.possible_values[sr][sc].remove(entry)
 
+            self.possible_values[row][col] = [entry]
+            
     def get_entry(self, row, col):
         """
         Gets the entry at the given row and column values from this sudoku problem.
