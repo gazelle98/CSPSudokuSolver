@@ -80,6 +80,8 @@ def remove_inconsistent_values(assignment, head, tail):
     if len(possible_head_values) == 1 and (possible_head_values[0] in possible_tail_values):
         possible_tail_values.remove(possible_head_values[0])
         removed = True
+        if len(possible_tail_values) == 1:
+            assignment.set_element(tr, tc, possible_tail_values[0])
 
     return removed
 
