@@ -55,8 +55,6 @@ Adding the --help or --h tag to the command line arguments shows a help page for
 You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
 in the same directory to specify a sudoku to solve.
 
-Examples:
-
     $ python main.py -sudoku medium
     $ python main.py -s sudoku.txt
 
@@ -65,3 +63,10 @@ that can be used to solve.
 
 If you use he file input option then the program will use the first 81 integers it finds in the .txt file
 as the values for the sudoku.
+
+In order to choose which next variable heuristic to use, the -next_var or -nv tag can be added followed
+by either trivial, or lpv which correspond to the trivial and least possible values heuristics as explained 
+above. The default heuristic is the LPV heuristic.
+
+    $ python main.py -next_var lvp
+    $ python main.py -nv trivial
