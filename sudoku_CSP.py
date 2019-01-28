@@ -2,12 +2,14 @@ import search
 
 
 class SudokuCSP:
-    def __init__(self, initial_sudoku, next_var_heuristic=search.lpv_next_var_heuristic()):
+    def __init__(self, initial_sudoku, next_var_heuristic=search.lpv_next_var_heuristic):
         """
         Initializes an instance of a SudokuCSP.
 
         Keyword arguments:
         initial_sudoku -- an instance of a Sudoku object representing the initial state of the sudoku to be solved.
+        next_var_heuristic -- an optional argument that is a function that takes in an instance of a Sudoku and
+        returns the next node to be expanded. Default is lpv_next_var_heuristic.
         """
         self.initial_sudoku = initial_sudoku
         self.next_var_heuristic = next_var_heuristic
