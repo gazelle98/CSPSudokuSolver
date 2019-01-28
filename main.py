@@ -59,6 +59,23 @@ worlds_hardest_sudoku_state = [[8, 0, 0, 0, 0, 0, 0, 0, 0],
                                [0, 9, 0, 0, 0, 0, 4, 0, 0]]
 
 
+"""
+This sudoku is truly the most difficult by tree width.
+This sudoku has a tree width of 100,571 while in comparison the hardest sudoku created by a person
+has a tree width of just 2257.
+"""
+# Solution found in 32,567 node expansions with optimized next variable heuristic and ac-3
+impossible_sudoku_state = [[0, 6, 1, 0, 0, 7, 0, 0, 3],
+                           [0, 9, 2, 0, 0, 3, 0, 0, 0],
+                           [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                           [0, 0, 8, 5, 3, 0, 0, 0, 0],
+                           [0, 0, 0, 0, 0, 0, 5, 0, 4],
+                           [5, 0, 0, 0, 0, 8, 0, 0, 0],
+                           [0, 4, 0, 0, 0, 0, 0, 0, 1],
+                           [0, 0, 0, 1, 6, 0, 8, 0, 0],
+                           [6, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+
 def parse_sudoku(sudoku_str):
     """
     Parses a string into a representation of a sudoku state as a 9x9 list of integers.
