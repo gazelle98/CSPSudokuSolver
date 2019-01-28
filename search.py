@@ -84,7 +84,7 @@ def remove_inconsistent_values(assignment, head, tail):
     return removed
 
 
-def lpv_next_var_heuristic(assignment):
+def mrv_next_var_heuristic(assignment):
     """
     Determines the next variable in the assignment to be expanded in order of least number of possible values.
 
