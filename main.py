@@ -144,13 +144,13 @@ def main():
         $ python main.py -next_var lvp
         $ python main.py -nv trivial"""
     sudoku_state = easy_sudoku_state
-    next_var = search.lpv_next_var_heuristic
+    next_var = search.mrv_next_var_heuristic
     sudoku_dict = {"easy": easy_sudoku_state,
                    "medium": medium_sudoku_state,
                    "hard": hard_sudoku_state,
                    "hardest": worlds_hardest_sudoku_state}
     next_var_dict = {"trivial": search.trivial_next_var_heuristic,
-                     "lpv": search.lpv_next_var_heuristic}
+                     "mrv": search.mrv_next_var_heuristic}
 
     for i, arg in enumerate(sys.argv):
         if arg == "--help" or arg == "--h":
