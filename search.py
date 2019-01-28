@@ -107,3 +107,22 @@ def lpv_next_var_heuristic(assignment):
         return pos_list[num_possible_list.index(min(num_possible_list))]
     else:
         raise ValueError("Assignment is already complete.")
+
+
+def trivial_next_var_heuristic(assignment):
+    """
+    Returns the first variable that has not yet been expanded.
+
+    Returns a tuple containing the row and column of the next variable to be expanded.
+
+    Keyword arguments:
+    assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
+    """
+
+    for r in range(9):
+        for c in range(9):
+            if assignment.get_entry(r, c) == 0:
+                pos = (r, c)
+                return pos
+
+    raise ValueError("Assignment is already complete.")
