@@ -21,10 +21,17 @@ If a domain is altered it will add all of the arcs affected by this domain chang
 until the queue is empty. 
 
 The possible values of each variable are kept track of in the Sudoku class instances and
-when it comes time to decide which variable to expand next in the search, it will choose 
-the variable with the fewest number of possible values left. This helps reduce the total 
-number of nodes expanded because there are fewer branches to the search tree this way, and 
-it is more likely to pick the correct value for the given variable.
+when it comes time to decide which variable to expand next in the search, it will use the given
+heuristic to determine which variable to expand next. The heuristics that are implemented in this
+program are as follows:
+
+- The trivial heuristic.
+    - This heuristic returns the first variable that has not yet been expanded.
+    - This does not help performance in any way.
+- The Least Possible Values (LPV) heuristic.
+    - This heuristic chooses the node with the least amount of possible values remaining. 
+    - This helps reduce the total number of nodes expanded because there are fewer branches 
+    to the search tree this way, and it is more likely to pick the correct value for the given variable.
 
 A state is discarded if it is found to be in violation of any of the constraints of the
 sudoku puzzle. If there is more than one of the same number in any given row, column, or 3x3 
