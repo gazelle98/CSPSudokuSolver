@@ -1,8 +1,5 @@
-import search
-
-
 class SudokuCSP:
-    def __init__(self, initial_sudoku, next_var_heuristic=search.mrv_next_var_heuristic):
+    def __init__(self, initial_sudoku, next_var_heuristic):
         """
         Initializes an instance of a SudokuCSP.
 
