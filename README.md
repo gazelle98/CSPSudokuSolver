@@ -31,7 +31,7 @@ sudoku puzzle. If there is more than one of the same number in any given row, co
 sub-square then that state is discarded so that it does not have to keep being expanded until
 it is complete to find out that it is incorrect. In addition if a variable's domain is empty, then
 that state is discarded because there is no possible value that can be entered there such that the 
-state maintains validity.
+state maintains validity.Hi
 
 ### Usage
 The command line syntax is as follows:
