@@ -57,20 +57,6 @@ class SudokuCSP:
 
         return self.next_var_heuristic(assignment)
 
-        # pos_list = []
-        # num_possible_list = []
-        # for r in range(0, 9):
-        #     for c in range(0, 9):
-        #         if assignment.get_entry(r, c) == 0:
-        #             pos = (r, c)
-        #             pos_list.append(pos)
-        #             num_possible_list.append(len(assignment.get_possible_values(r, c)))
-        #
-        # if len(pos_list) > 0:
-        #     return pos_list[num_possible_list.index(min(num_possible_list))]
-        # else:
-        #     raise ValueError("Assignment is already complete.")
-
     def get_successors(self, assignment, variable_pos):
         """
         Gets all of the valid successors of the given assignment in regards to the variable position.
