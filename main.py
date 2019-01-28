@@ -115,16 +115,17 @@ def main():
     Runs the sudoku solver using the given command line arguments as input.
 
     The command line syntax is as follows:
+
         $ python main.py
-    This command runs the program solving a default easy sudoku problem.
 
     Adding the --help or --h tag to the command line arguments shows a
     help page for how to initialize this program:
+
         $python main.py --h
 
     You can add the -sudoku or -s argument followed by easy, medium,
     hard, hardest, or a the name of a .txt file in the same directory
-    to specify a sudoku to solve.
+    to specify a sudoku to solve. The default sudoku is easy.
 
         $ python main.py -sudoku medium
         $ python main.py -s sudoku.txt
@@ -136,12 +137,12 @@ def main():
     digits it finds in the .txt file as the values for the sudoku.
 
     In order to choose which next variable heuristic to use, the -next_var
-    or -nv tag can be added followed by either trivial, or lpv which correspond
-    to the trivial and least possible values heuristics.
+    or -nv tag can be added followed by either trivial, or lpv which
+    correspond to the trivial and least possible values heuristics.
     The default heuristic is the LPV heuristic.
 
-    $ python main.py -next_var lvp
-    $ python main.py -nv trivial"""
+        $ python main.py -next_var lvp
+        $ python main.py -nv trivial"""
     sudoku_state = easy_sudoku_state
     next_var = search.lpv_next_var_heuristic
     sudoku_dict = {"easy": easy_sudoku_state,
