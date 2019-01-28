@@ -1,6 +1,3 @@
-import sudoku_problem
-
-
 def backtracking_search(csp):
     """
     Initializes a backtracking search algorithm to solve the given CSP.
@@ -8,7 +5,7 @@ def backtracking_search(csp):
     Keyword arguments:
     csp -- an instance of a SudokuCSP problem used as the problem to be solved.
     """
-    assignment = sudoku_problem.Sudoku(csp.get_initial_state())
+    assignment = csp.get_initial_sudoku()
     return recursive_backtracking(assignment, csp)
 
 
