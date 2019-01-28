@@ -52,14 +52,14 @@ Adding the --help or --h tag to the command line arguments shows a help page for
     $python main.py --h
     $python main.py --help
 
-You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, or a the name of a .txt file
-in the same directory to specify a sudoku to solve.
+You can add the -sudoku or -s argument followed by easy, medium, hard, hardest, impossible, 
+or a the name of a .txt file in the same directory to specify a sudoku to solve.
 
     $ python main.py -sudoku medium
     $ python main.py -s sudoku.txt
 
-The easy, medium, hard, and hardest keywords correspond to 4 different built in sudokus of varying difficulty
-that can be used to solve.
+The easy, medium, hard, hardest, and impossible keywords correspond to 5 different built in sudokus of 
+varying difficulty that can be used to solve.
 
 If you use he file input option then the program will use the first 81 integers it finds in the .txt file
 as the values for the sudoku.
