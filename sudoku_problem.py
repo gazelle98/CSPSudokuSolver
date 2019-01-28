@@ -70,6 +70,8 @@ class Sudoku:
             raise ValueError("Row value must be between 0 and 8")
         elif col < 0 or col > 8:
             raise ValueError("Column value must be between 0 and 8")
+        elif len(self.get_possible_values(row, col)) == 1 and self.get_possible_values(row, col)[0] == entry:
+            self.sudoku_state[row][col] = entry
         else:
             self.sudoku_state[row][col] = entry
             self.possible_values[row][col] = [entry]
