@@ -136,10 +136,12 @@ def main():
     If you use he file input option then the program will use the first 81
     digits it finds in the .txt file as the values for the sudoku."""
     sudoku_state = easy_sudoku_state
+    next_var = search.lpv_next_var_heuristic
     sudoku_dict = {"easy": easy_sudoku_state,
                    "medium": medium_sudoku_state,
                    "hard": hard_sudoku_state,
                    "hardest": worlds_hardest_sudoku_state}
+    next_var_dict = {"lpv": search.lpv_next_var_heuristic}
 
     for i, arg in enumerate(sys.argv):
         if arg == "--help" or arg == "--h":
@@ -156,9 +158,14 @@ def main():
                     sudoku_state = parse_sudoku(sudoku_file.read())
                 except FileNotFoundError:
                     raise ValueError("Given argument for sudoku input \"-s\" is invalid.")
+        if arg == "-next_var" or arg == "-nv":
+            if sys.argv[i + 1] in next_var_dict:
+                next_var = next_var_dict[sys.argv[i + 1]]
+            else:
+                ValueError("Given argument for next_var input \"-nv\" is invalid.")
 
     initial_sudoku = sudoku_problem.Sudoku(sudoku_state)
-    csp = sudoku_CSP.SudokuCSP(initial_sudoku)
+    csp = sudoku_CSP.SudokuCSP(initial_sudoku, next_var_heuristic=next_var)
 
     start = time.clock()
     solution = search.backtracking_search(csp)
