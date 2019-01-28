@@ -28,7 +28,7 @@ program are as follows:
 - The trivial heuristic.
     - This heuristic returns the first variable that has not yet been expanded.
     - This does not help performance in any way.
-- The Least Possible Values (LPV) heuristic.
+- The Minimum Remaining Values (MRV) heuristic.
     - This heuristic chooses the node with the least amount of possible values remaining. 
     - This helps reduce the total number of nodes expanded because there are fewer branches 
     to the search tree this way, and it is more likely to pick the correct value for the given variable.
@@ -65,8 +65,8 @@ If you use he file input option then the program will use the first 81 integers 
 as the values for the sudoku.
 
 In order to choose which next variable heuristic to use, the -next_var or -nv tag can be added followed
-by either trivial, or lpv which correspond to the trivial and least possible values heuristics as explained 
-above. The default heuristic is the LPV heuristic.
+by either trivial, or mrv which correspond to the trivial and minimum remaining values heuristics as explained 
+above. The default heuristic is the MRV heuristic.
 
     $ python main.py -next_var lvp
     $ python main.py -nv trivial
