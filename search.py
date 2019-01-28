@@ -82,3 +82,28 @@ def remove_inconsistent_values(assignment, head, tail):
         removed = True
 
     return removed
+
+
+def get_next_variable(assignment):
+    """
+    Determines the next variable in the assignment to be expanded.
+
+    Returns a tuple containing the row and column of the next variable to be expanded.
+
+    Keyword arguments:
+    assignment -- an instance of a Sudoku representing the assignments to each entry in this CSP.
+    """
+
+    pos_list = []
+    num_possible_list = []
+    for r in range(0, 9):
+        for c in range(0, 9):
+            if assignment.get_entry(r, c) == 0:
+                pos = (r, c)
+                pos_list.append(pos)
+                num_possible_list.append(len(assignment.get_possible_values(r, c)))
+
+    if len(pos_list) > 0:
+        return pos_list[num_possible_list.index(min(num_possible_list))]
+    else:
+        raise ValueError("Assignment is already complete.")
