@@ -84,9 +84,9 @@ def remove_inconsistent_values(assignment, head, tail):
     return removed
 
 
-def get_next_variable(assignment):
+def mvp_next_var_heuristic(assignment):
     """
-    Determines the next variable in the assignment to be expanded.
+    Determines the next variable in the assignment to be expanded in order of least number of possible values.
 
     Returns a tuple containing the row and column of the next variable to be expanded.
 
