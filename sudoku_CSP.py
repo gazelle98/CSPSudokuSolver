@@ -18,13 +18,13 @@ class SudokuCSP:
         """
         return self.expanded_nodes
 
-    def get_initial_state(self):
+    def get_initial_sudoku(self):
         """
         Gets the initial state of this sudoku csp problem.
 
         Returns the initial state by calling the get_state() method on the initial_sudoku of this csp.
         """
-        return self.initial_sudoku.get_state()
+        return self.initial_sudoku.deep_copy()
 
     def is_complete_assignment(self, assignment):
         """
