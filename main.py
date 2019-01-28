@@ -126,7 +126,6 @@ def main():
     hard, hardest, or a the name of a .txt file in the same directory
     to specify a sudoku to solve.
 
-    Examples:
         $ python main.py -sudoku medium
         $ python main.py -s sudoku.txt
 
@@ -134,7 +133,15 @@ def main():
     built in sudokus of varying difficulty that can be used to solve.
 
     If you use he file input option then the program will use the first 81
-    digits it finds in the .txt file as the values for the sudoku."""
+    digits it finds in the .txt file as the values for the sudoku.
+
+    In order to choose which next variable heuristic to use, the -next_var
+    or -nv tag can be added followed by either trivial, or lpv which correspond
+    to the trivial and least possible values heuristics.
+    The default heuristic is the LPV heuristic.
+
+    $ python main.py -next_var lvp
+    $ python main.py -nv trivial"""
     sudoku_state = easy_sudoku_state
     next_var = search.lpv_next_var_heuristic
     sudoku_dict = {"easy": easy_sudoku_state,
