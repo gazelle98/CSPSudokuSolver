@@ -149,7 +149,8 @@ def main():
                    "medium": medium_sudoku_state,
                    "hard": hard_sudoku_state,
                    "hardest": worlds_hardest_sudoku_state}
-    next_var_dict = {"lpv": search.lpv_next_var_heuristic}
+    next_var_dict = {"trivial": search.trivial_next_var_heuristic, 
+                     "lpv": search.lpv_next_var_heuristic}
 
     for i, arg in enumerate(sys.argv):
         if arg == "--help" or arg == "--h":
