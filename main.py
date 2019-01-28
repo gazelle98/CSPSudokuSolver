@@ -147,8 +147,9 @@ def main():
         $ python main.py -sudoku medium
         $ python main.py -s sudoku.txt
 
-    The easy, medium, hard, and hardest keywords correspond to 4 different
-    built in sudokus of varying difficulty that can be used to solve.
+    The easy, medium, hard, hardest, and impossible keywords correspond
+    to 5 different built in sudokus of varying difficulty that can be
+    used to solve.
 
     If you use he file input option then the program will use the first 81
     digits it finds in the .txt file as the values for the sudoku.
@@ -165,7 +166,8 @@ def main():
     sudoku_dict = {"easy": easy_sudoku_state,
                    "medium": medium_sudoku_state,
                    "hard": hard_sudoku_state,
-                   "hardest": worlds_hardest_sudoku_state}
+                   "hardest": worlds_hardest_sudoku_state,
+                   "impossible": impossible_sudoku_state}
     next_var_dict = {"trivial": search.trivial_next_var_heuristic,
                      "mrv": search.mrv_next_var_heuristic}
 
