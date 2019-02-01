@@ -14,7 +14,7 @@ Also the different variables are expanded in an order such that it will limit th
 of nodes that have to be expanded.
 
 In order to eliminate as many contradictory possible values as possible, as quickly as possible, 
-this CSP implements the Arc-Consistency: Consistency Propagation algorithm, or AC-3. Whenever a value is 
+this CSP implements the Arc-Consistency: Constraint Propagation algorithm, or AC-3. Whenever a value is 
 updated it will form a queue of arcs, which are pairs of positions that are affected by the updated value.
 Then it will go through each arc and remove values from the domain of the tail of each arc if they contradict.
 If a domain is altered it will add all of the arcs affected by this domain change to the queue and will repeat 
