@@ -4,6 +4,11 @@ import search
 import time
 import sys
 
+with open('sample_input.txt', 'r') as file:
+    input_file = [map(int, list(
+        line.strip().replace(',', '')
+        )) for line in file.readlines()]
+
 easy_sudoku_state = [[0, 5, 3, 0, 0, 0, 7, 9, 0],
                      [0, 0, 9, 7, 8, 2, 6, 0, 0],
                      [0, 0, 0, 5, 0, 3, 0, 0, 0],
@@ -96,6 +101,7 @@ def print_initial_and_solution(init_state, sol_state):
     init_state -- a 9x9 list of lists of integers representing the starting state of the solution
     sol_state -- a 9x9 list of lists of integers representing the solution state of the solution
     """
+    output_file = open('output.txt', 'w')
     output_string = "\nInitial state:             Solution state:\n"
     for row in range(9):
         for init_col in range(9):
@@ -104,11 +110,16 @@ def print_initial_and_solution(init_state, sol_state):
         output_string += " " * 9
 
         for sol_col in range(9):
-            output_string += str(sol_state[row][sol_col]) + " "
+            temp = str(sol_state[row][sol_col]) + " "
+            output_string += temp
+            output_file.write(temp)
 
+        # import pdb; pdb.set_trace()
         output_string += "\n"
+        output_file.write('\n')
 
     print(output_string)
+
 
 
 def main():
@@ -145,9 +156,10 @@ def main():
 
         $ python main.py -next_var lvp
         $ python main.py -nv trivial"""
-    sudoku_state = easy_sudoku_state
+    sudoku_state = input_file
     next_var = search.mrv_next_var_heuristic
-    sudoku_dict = {"easy": easy_sudoku_state,
+    sudoku_dict = {"file": input_file,
+                   "easy": easy_sudoku_state,
                    "medium": medium_sudoku_state,
                    "hard": hard_sudoku_state,
                    "hardest": worlds_hardest_sudoku_state,

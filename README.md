@@ -45,7 +45,7 @@ The command line syntax is as follows:
 
     $ python main.py
     
-This command runs the program solving a default easy sudoku problem.
+This command runs the program solving a sudoku problem related to the input file in the directory.
 
 Adding the --help or --h tag to the command line arguments shows a help page for how to initialize this program:
 
